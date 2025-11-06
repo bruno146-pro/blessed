@@ -1,0 +1,119 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blessed Barbershop - Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{% static "img/barberia-bg.jpg" %}') no-repeat center center; /* Reemplazar con una imagen real */
+            background-size: cover;
+            color: white;
+            padding: 8rem 0;
+        }
+        .section-padding {
+            padding: 4rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <i class="bi bi-scissors"></i> Blessed Barbershop
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light ms-3" href="{% url 'login' %}">
+                            <i class="bi bi-person-fill"></i> Iniciar Sesión
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold">El Arte de la Barba y el Cabello</h1>
+            <p class="lead mb-4">Agenda tu próxima experiencia de corte y afeitado con los mejores barberos.</p>
+            <a href="{% url 'login' %}" class="btn btn-danger btn-lg shadow-sm">
+                <i class="bi bi-calendar-check"></i> Agendar Hora
+            </a>
+        </div>
+    </header>
+    
+    <section id="servicios" class="section-padding bg-light">
+        <div class="container text-center">
+            <h2 class="mb-5">Nuestros Servicios</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-person-badge display-4 text-danger mb-3"></i>
+                            <h5 class="card-title">Corte Clásico</h5>
+                            <p class="card-text">Estilo a máquina o tijera, incluye lavado y peinado.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-back display-4 text-danger mb-3"></i>
+                            <h5 class="card-title">Arreglo de Barba</h5>
+                            <p class="card-text">Perfilado con navaja, paños calientes y aceites.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-brightness-high display-4 text-danger mb-3"></i>
+                            <h5 class="card-title">Pack Completo</h5>
+                            <p class="card-text">Corte de pelo y arreglo de barba, el servicio premium.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4">
+                    <h2 class="mb-3">¿Quiénes Somos?</h2>
+                    <p>En Blessed Barbershop, combinamos la tradición del afeitado clásico con las tendencias modernas de la moda capilar. Nuestro equipo de barberos profesionales está dedicado a ofrecer una experiencia de lujo y resultados impecables. Estamos ubicados en el corazón de San Rafael.</p>
+                    <p class="lead mt-4"><i class="bi bi-geo-alt-fill text-danger"></i> Av. Oriente 10, San Rafael, Maule</p>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-4 pb-2">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Blessed Barbershop. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

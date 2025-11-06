@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Panel de Barbero | Blessed Barbershop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        /* Estilos personalizados para el sidebar */
+        .sidebar {
+            height: 100vh;
+            background-color: #212529; /* Color oscuro */
+            color: white;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #343a40;
+            border-radius: 5px;
+        }
+        .main-content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 col-lg-2 sidebar d-none d-md-block">
+            <h4 class="text-center mb-4">Panel Barbero</h4>
+            <hr class="text-white-50">
+            <p class="text-center">Bienvenido, **{{ request.session.usuario|default:'Barbero' }}**</p>
+            <hr class="text-white-50">
+            
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'verReservas' %}">
+                        <i class="bi bi-calendar-check me-2"></i> Mis Reservas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'verDisponibilidades' %}">
+                        <i class="bi bi-clock me-2"></i> Gestionar Disponibilidad
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="{% url 'cerrar_sesion' %}">
+                        <i class="bi bi-box-arrow-right me-2"></i> Cerrar Sesión
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-12 col-md-9 col-lg-10 main-content">
+            
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom d-md-none">
+                <h1 class="h2">Panel Barbero</h1>
+                <a class="btn btn-outline-danger btn-sm" href="{% url 'cerrar_sesion' %}">
+                    <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </a>
+            </div>
+
+            <div class="alert alert-info d-none d-md-block" role="alert">
+                ¡Hola, **{{ request.session.usuario|default:'Barbero' }}**! Usa el menú lateral para administrar tus reservas y disponibilidad.
+            </div>
+
+            <h2 class="mb-4">Resumen Rápido</h2>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card text-white bg-primary">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-calendar-check me-2"></i> Ver Mis Reservas</h5>
+                            <p class="card-text">Consulta y gestiona todos tus turnos agendados.</p>
+                            <a href="{% url 'verReservas' %}" class="btn btn-light btn-sm">Ir a Reservas</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card text-white bg-success">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-clock me-2"></i> Gestionar Disponibilidad</h5>
+                            <p class="card-text">Define y actualiza tus horarios de trabajo.</p>
+                            <a href="{% url 'verDisponibilidades' %}" class="btn btn-light btn-sm">Ir a Disponibilidad</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
